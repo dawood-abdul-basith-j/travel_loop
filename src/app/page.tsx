@@ -59,7 +59,7 @@ export default function Dashboard() {
               Plan your multi-city journey with intelligent budget tracking and collaborative itineraries.
             </p>
             <div className="flex gap-4">
-              <Link href="/trips/create" className="btn btn-primary">
+              <Link href="/trips/1/edit" className="btn btn-primary">
                 <Plus size={20} />
                 Start Planning
               </Link>
@@ -85,7 +85,7 @@ export default function Dashboard() {
 
             <div className="grid grid-cols-2 gap-6">
               {recentTrips.map((trip) => (
-                <div key={trip.name} className="glass-card flex flex-col gap-4">
+                <Link href="/trips/1" key={trip.name} className="glass-card flex flex-col gap-4 hover:scale-[1.02] transition-all">
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-lg">{trip.name}</h3>
@@ -109,7 +109,7 @@ export default function Dashboard() {
                       ></div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 

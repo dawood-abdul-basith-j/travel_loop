@@ -18,7 +18,7 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { name: 'Dashboard', icon: Home, href: '/dashboard' },
+    { name: 'Dashboard', icon: Home, href: '/' },
     { name: 'My Trips', icon: Map, href: '/trips' },
     { name: 'Search', icon: Search, href: '/search' },
     { name: 'Community', icon: Users, href: '/community' },
@@ -32,11 +32,11 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar glass">
-      <div className="brand text-2xl tracking-tight mb-8">
+      <Link href="/" className="brand text-2xl tracking-tight mb-8 block">
         <span className="text-secondary">Travel</span>oop
-      </div>
+      </Link>
 
-      <Link href="/trips/create" className="btn btn-primary w-full mb-8">
+      <Link href="/trips/1/edit" className="btn btn-primary w-full mb-8">
         <PlusCircle size={20} />
         Plan New Trip
       </Link>
