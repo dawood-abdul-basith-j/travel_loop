@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import MainLayout from '@/components/MainLayout';
+import Link from 'next/link';
 import { 
   Plus, 
   Trash2, 
