@@ -9,7 +9,7 @@
   --surface: #1c2541;
   --surface-hover: #3a506b;
   --text: #edf2f4;
-  --text-muted: #8d99ae;
+  --text-muted: #b8c1ec;
   --glass: rgba(28, 37, 65, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);
   --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -129,6 +129,16 @@ h1, h2, h3, h4, .brand {
   flex-direction: column;
   gap: 40px;
   border-right: 1px solid var(--glass-border);
+  color: var(--text);
+}
+
+.sidebar a {
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.sidebar a:hover, .sidebar a.active {
+  color: white;
 }
 
 .content {
