@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌍 Traveloop - Personalized Travel Planning
 
-## Getting Started
+Traveloop is an intelligent, collaborative platform designed to transform the way individuals plan and experience travel. It empowers users to dream, design, and organize multi-city trips with ease, combining flexibility with high-end interactive visualization.
 
-First, run the development server:
+## 🚀 Features
 
+- **Multi-City Itineraries**: Create customized plans by adding travel stops and specific durations.
+- **Dynamic Search**: Discover cities and activities through an integrated search interface.
+- **Budget Management**: Automatic estimation of trip costs with detailed breakdowns and over-budget alerts.
+- **Visual Planning**: View itineraries through structured timelines and glassmorphism UI components.
+- **Collaborative Sharing**: Share trip plans publicly via unique URLs or copy community itineraries.
+- **Admin Oversight**: Dedicated dashboard for platform analytics and user engagement trends.
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js 15 (App Router), TypeScript
+- **Styling**: Vanilla CSS (Premium Glassmorphism Design)
+- **Database**: Prisma with SQLite
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **Animations**: Framer Motion
+
+---
+
+## 🛠️ How to Run the Project
+
+### **Prerequisites**
+- **Node.js** (v18+)
+- **npm** or **yarn**
+
+### **1. Installation**
+Clone the repository and install the dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Database Setup**
+Initialize the relational database and run migrations:
+```bash
+npx prisma migrate dev --name init
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **3. Start the Development Server**
+Run the following command to start the app locally:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **4. Access the App**
+Open your browser and navigate to:
+```
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 UI/UX Highlights
+The application follows a premium **Glassmorphism** aesthetic:
+- **Dashboard**: `src/app/page.tsx`
+- **Itinerary Builder**: `src/app/trips/[id]/edit/page.tsx`
+- **Admin Analytics**: `src/app/admin/page.tsx`
+- **Packing Checklist**: `src/app/trips/[id]/checklist/page.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+**Traveloop - Plan Smarter, Travel Better.**

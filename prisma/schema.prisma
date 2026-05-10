@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id               String        @id @default(cuid())
+  email            String        @unique
+  password         String
+  name             String?
+  photo            String?
+  language         String        @default("English")
+  savedDestinations String?      // JSON string or comma separated
+  trips            Trip[]
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model Trip {
+  id          String        @id @default(cuid())
+  name        String
+  startDate   DateTime
+  endDate     DateTime
+  description String?
+  coverPhoto  String?
+  isPublic    Boolean       @default(false)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  stops       Stop[]
+  expenses    Expense[]
+  checklist   PackingItem[]
+  notes       Note[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Stop {
+  id          String     @id @default(cuid())
+  city        String
+  arrivalDate DateTime
+  departureDate DateTime
+  order       Int
+  tripId      String
+  trip        Trip       @relation(fields: [tripId], references: [id])
+  activities  Activity[]
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // e.g., Sightseeing, Dining, Transport
+  duration    String?
+  cost        Float    @default(0)
+  stopId      String
+  stop        Stop     @relation(fields: [stopId], references: [id])
+}
+
+model Expense {
+  id        String   @id @default(cuid())
+  category  String   // Transport, Stay, Meals, Activities, Other
+  amount    Float
+  date      DateTime @default(now())
+  tripId    String
+  trip      Trip     @relation(fields: [tripId], references: [id])
+}
+
+model PackingItem {
+  id        String  @id @default(cuid())
+  name      String
+  category  String  // Clothing, Electronics, Documents, etc.
+  isPacked  Boolean @default(false)
+  tripId    String
+  trip      Trip    @relation(fields: [tripId], references: [id])
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  content   String
+  day       Int?     // Optional: link to a specific day
+  tripId    String
+  trip      Trip     @relation(fields: [tripId], references: [id])
+  createdAt DateTime @default(now())
+}
